@@ -14,6 +14,23 @@ printHelp() {
     exit 1
 }
 
+
+######################## PREREQUISITES ########################
+
+prerequisites="xmllint"
+missingPrerequisites=false
+for bin in $prerequisites
+do
+    if ! which $bin > /dev/null ; then
+        echo "Error (missing prerequisites): $bin is required";
+        missingPrerequisites=true
+    fi;
+done
+if [ "$missingPrerequisites" = true ]; then
+    exit 1
+fi
+
+
 ######################## OPTIONS HANDLING ########################
 
 while getopts ":hu:t:f:" opt; do
