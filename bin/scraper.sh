@@ -58,13 +58,13 @@ if ! page=$(curl -s -f -m 10 $url) ; then
 fi
 
 # Get table body. Exit if table id is not found.
-if ! tableBody=$(echo $page | xmllint --html --xpath "//table[@id=\"$table_id\"]/tbody" - 2>/dev/null | xmllint --format - 2>/dev/null ) ; then
+if ! tableBody=$(echo $page | xmllint --html --xpath "//table[@id=\"$table_id\"]/tbody" - 2>/dev/null | xmllint --format - 2>/dev/null) ; then
     echo "Error: Table ID not found"
     exit 1
 fi
 
 # Clean file
-echo "" > $filename
+printf "" > $filename
 
 while true; do 
 
@@ -80,5 +80,7 @@ while true; do
     commandUrl=$url$(echo $anchor | xmllint --xpath "//@href" - | sed -e "s: ::g" | sed -e "s:\"::g" | sed "s/href=//")
 
     # Write to file
-    echo $commandName $commandUrl >> $filename
+    echo $commandUrl $commandName | tee -a $filename
 done
+
+exit 0
