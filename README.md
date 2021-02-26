@@ -10,7 +10,7 @@ Use it at your discretion, better if you know that me and whoever contributed, *
 
 ---
 
-#Example output
+# Example output
 
 ```
 ------------------------------
