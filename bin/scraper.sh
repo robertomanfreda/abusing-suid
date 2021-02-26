@@ -80,7 +80,5 @@ while true; do
     commandUrl=$url$(echo $anchor | xmllint --xpath "//@href" - | sed -e "s: ::g" | sed -e "s:\"::g" | sed "s/href=//")
 
     # Write to file
-    echo $commandUrl $commandName | tee -a $filename
+    echo $commandUrl $commandName >> $filename
 done
-
-exit 0
