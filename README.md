@@ -12,9 +12,19 @@ Use it at your discretion, better if you know that me and whoever contributed, *
 
 # Usage
 
-Just execute the script under the bin folder
-
+## Latest release
 ```shell
+git clone https://github.com/robertomanfreda/abusing-suid.git
+cd abusing-suid
+cd bin
+./find_exploitable_suids
+```
+
+## Specific release
+```shell
+curl 'https://codeload.github.com/robertomanfreda/abusing-suid/tar.gz/1.0.0' --output abusing-suid.tar.gz
+tar -xzvf abusing-suid.tar.gz
+cd abusing-suid-<version> 
 cd bin
 ./find_exploitable_suids
 ```
